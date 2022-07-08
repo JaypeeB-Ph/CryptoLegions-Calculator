@@ -1,0 +1,65 @@
+body {
+  background-image: url("../../Web Development/CryptoLegions/images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+input {
+  text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.cal-btn {
+  display: block !important;
+  margin: 0 auto 1rem;
+}
+
+.th-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.cloud{
+  height: 110px;
+  width: 1000px;
+  opacity: 0.8;
+}
+
+.container-fluid{
+  text-align: center;
+}
+
+.calc {
+  position: relative;
+  background-color: #DDDDDD;
+  margin: 1% 25%;
+  border-radius: 10px;
+  padding: 2% 5%;
+}
+
+.logo {
+  width: 60%;
+  height: auto;
+}
+
+@media (max-width: 730px){
+  input{
+    font-size: 1rem;
+  }
+
+  .th-btn {
+    position: static;
+  }
+
+}
+
+@media (max-width: 1000px){
+
+  .logo {
+    width: 80%;
+    height: auto;
+  }
+}
