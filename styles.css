@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://github.com/JaypeeB-Ph/CryptoLegions-HuntCalculator/blob/main/bg.jpg?raw=true");
+  background-image: url("https://github.com/JaypeeB-Ph/CryptoLegions-Calculator/blob/main/bg.jpg?raw=true");
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -19,6 +19,12 @@ input {
 .th-btn {
   position: absolute;
   right: 10px;
+  bottom: 10px;
+}
+
+.roi-btn {
+  position: absolute;
+  left: 10px;
   bottom: 10px;
 }
 
@@ -52,6 +58,12 @@ input {
 
   .th-btn {
     position: static;
+    margin: 5px 0 ;
+  }
+
+  .roi-btn {
+    position: static;
+    margin: 5px 0 ;
   }
 
 }
@@ -62,4 +74,5 @@ input {
     width: 80%;
     height: auto;
   }
+
 }
