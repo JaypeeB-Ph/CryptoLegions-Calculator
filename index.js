@@ -45,18 +45,23 @@ document.querySelector("button.th-btn").addEventListener("click", function (){
     alert("Your legion's AP is " + baseAP + " not enough to hunt try upgrading.");
   }
 
-  if(mons >= 1 && mons <= limit){
-    var base = chance[mons - 1] * 100;
-    var roll = Math.floor((Math.random() * 100)) + 1;
 
-    if(roll <= base){
-      alert("You won! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
+
+  if(limit >= 1){
+    if(mons >= 1 && mons <= limit){
+      var base = chance[mons - 1] * 100;
+      var roll = Math.floor((Math.random() * 100)) + 1;
+
+      if(roll <= base){
+        alert("You won! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
+      }else{
+        alert("You lose! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
+      }
     }else{
-      alert("You lose! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
+      alert("Invalid range try again.");
     }
-  }else{
-    alert("Invalid range try again.");
   }
+  
 
 });
 
@@ -66,8 +71,8 @@ function checkLimit(ap){
 
   for(var i = 0; i < monsters.length; i++){
     if(ap >= monsters[i]){
-      x = i;
+      x++;
     }
   }
-  return x + 1;
+  return x * 1;
 }
