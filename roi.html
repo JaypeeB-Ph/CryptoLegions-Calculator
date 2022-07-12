@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Crypto Legions - ROI Calculator</title>
+  <link rel="shortcut icon" href="images/bloodstone.ico">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  <!-- CUSTOM CSS -->
+  <link rel="stylesheet" href="styles-roi.css">
+</head>
+
+<body>
+  <!-- <img class="cloud" src="images/top-cloud.png"/> -->
+
+  <div class="container-fluid">
+    <img class="logo" src="images/logo.png" alt="logo">
+  </div>
+
+  <div class="container-fluid">
+    <div class="calc">
+      <h1>💰ROI Calculator💰</h1>
+      <br>
+      <p>For accurate calculation please refer values to <a href="https://play.cryptolegions.app/">Nadodo Is Watching</a> window.</p>
+
+      <form>
+        <div class="mb-3">
+          <label class="form-label">Your capital in USD:</label>
+          <input type="number" class="form-control" id="capitalInput">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Legion's AP:</label>
+          <input type="number" class="form-control" id="apInput">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Warriors in the legion:</label>
+          <input type="number" class="form-control" id="warriors">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Beasts in the legion:</label>
+          <input type="number" class="form-control" id="beasts">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Hunt tax e.g (2.5% -> 2.5):</label>
+          <input type="number" class="form-control" id="hunt-tax">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Legion damage per hunt e.g (2% -> 2):</label>
+          <input type="number" class="form-control" id="legion-damage">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sell tax e.g (20% -> 20):</label>
+          <input type="number" class="form-control" id="sell-tax">
+        </div>
+      </form>
+
+
+      <button type="button" class="btn btn-success cal-btn">Calculate</button>
+      <h3 class="net-profit-text">Your net profit:</h3>
+      <h2 class="net-profit"></h2>
+      <p class="net-profit-p"></p>
+      <a class="see-more"></a>
+      <a href="index.html"><button type="button" class="btn btn-dark back-btn">Back</button></a>
+    </div>
+
+  </div>
+
+
+
+  <script type="text/javascript" src="roi.js"></script>
+</body>
+
+</html>
