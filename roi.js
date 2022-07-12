@@ -13,7 +13,7 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   resetAllValues();
 
 
-  alert("The result you will see is only an estimation based on static values provided, therefore the accuracy of the result will depend on Nadodo.");
+  alert("The result you will see is only an estimation based on static values provided, therefore the accuracy of the result will depend to Nadodo.");
 
   capital = Number(document.querySelector("#capitalInput").value);
   ap = Number(document.querySelector("#apInput").value);
@@ -36,7 +36,7 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
     revenue = 0;
   }
 
-  // net profit
+  // net profit text
   document.querySelector(".net-profit-text").style.visibility = "visible";
 
   if(netProfit >= capital){
