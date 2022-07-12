@@ -72,3 +72,10 @@ label{
 .net-profit-text{
   visibility: hidden;
 }
+
+/* footer */
+footer{
+  text-align: center;
+  color: #fff;
+  margin-top: 200px;
+}
