@@ -49,16 +49,15 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
 
   document.querySelector(".net-profit-p").innerText = "Assuming you won all hunts from strongest monster you can hunt to the weakest, gas fees not included.";
   document.querySelector(".see-more").innerText = "See more information";
-  document.querySelector(".see-more").addEventListener("click", function (){
+
+});
+
+ document.querySelector(".see-more").addEventListener("click", function (){
     alert("Legion Total Hunts: " + totalHunts +"\nGross Profit: $" + initialProfit +
   "\nTotal Supply Cost: $" + supplyCost + "\nTotal Hunt Tax: $" + huntCost + "\nLegion Creation Cost: $" + creationCost +
   "\nOverall Fees: $" + totalCost + "\nSell tax: $" + (grossProfit * (sTax / 100))  + "\nNet Profit: $" + netProfit +
   "\nRevenue: $" + revenue);
   });
-
-
-
-});
 
 
 function hunt(ap, legionDMG){
