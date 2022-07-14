@@ -50,7 +50,7 @@ document.querySelector("button.th-btn").addEventListener("click", function (){
   if(limit >= 1){
     if(mons >= 1 && mons <= limit){
       var base = chance[mons - 1] * 100;
-      var roll = Math.floor((Math.random() * 100)) + 1;
+      var roll = Math.floor(Math.random() * 100);
 
       if(roll <= base){
         alert("You won! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
