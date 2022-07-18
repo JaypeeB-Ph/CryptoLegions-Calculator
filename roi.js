@@ -1,6 +1,6 @@
 let capital, ap, warriors, beasts, hTax, legionDMG, sTax;
 
-let initialProfit,grossProfit,netProfit,revenue;
+let initialProfit,grossProfit,netProfit,revenue, maxRevenue;
 let totalHunts, supplyCost, huntCost, creationCost, totalCost;
 
 const monsters = [2000,5000,8000,10000,13000,17000,20000,22000,25000,28000,31000,34000,
@@ -37,9 +37,19 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   grossProfit = initialProfit - totalCost;
   netProfit = Math.round(grossProfit - (grossProfit * (sTax / 100)));
   revenue = (netProfit - capital);
+  
   if(revenue <= 0){
     revenue = 0;
   }
+  
+  if(revenue > 0){
+     maxRevenue = revenue + (grossProfit *(sTax / 100));
+  }else{
+     maxRevenue = revenue;
+  }
+ 
+  
+  
 
   // net profit
   document.querySelector(".net-profit-text").style.visibility = "visible";
@@ -61,7 +71,7 @@ document.querySelector(".see-more").addEventListener("click", function (){
   alert("Legion Total Hunts: " + totalHunts +"\nGross Profit: $" + initialProfit +
 "\nTotal Supply Cost: $" + supplyCost + "\nTotal Hunt Tax: $" + huntCost + "\nLegion Creation Cost: $" + creationCost +
 "\nOverall Fees: $" + totalCost + "\nSell tax: $" + (grossProfit * (sTax / 100))  + "\nNet Profit: $" + netProfit +
-"\nRevenue: $" + revenue + "\n\nTip: To maximize profits you can wait for token to pump 20% before selling. " +  "\nRevenue if you wait: $" + (revenue + (grossProfit *(sTax / 100))));
+"\nRevenue: $" + revenue + "\n\nTip: To maximize profits you can wait for token to pump 20% before selling. " +  "\nRevenue if you wait: $" + maxRevenue);
 });
 
 
@@ -111,6 +121,7 @@ function resetAllValues(){
   grossProfit = 0;
   netProfit = 0;
   revenue = 0;
+  maxRevenue = 0;
 
   totalHunts = 0;
   supplyCost = 0
