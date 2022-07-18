@@ -30,6 +30,12 @@ var limit;
 var mons;
 var base, roll, bonus;
 
+document.querySelector("button.ms-btn").addEventListener("click", function(){
+  alert("This feature is currently being developed show me some love by buying me coffee address is pasted below thank you 🙏.");
+});
+
+
+
 document.querySelector("button.th-btn").addEventListener("click", function (){
   base = 0;
   roll = 0;
