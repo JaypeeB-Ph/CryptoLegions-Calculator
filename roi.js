@@ -106,7 +106,8 @@ function supplies(hunts, qWarriors){
 }
 
 function resetAllValues(){
-
+  console.clear();
+  
   won = 0;
 
   capital = 0;
