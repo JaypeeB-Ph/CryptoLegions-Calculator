@@ -28,8 +28,12 @@ document.querySelector("button.cal-btn").addEventListener("click", function (){
 // Test hunt
 var limit;
 var mons;
+var base, roll, bonus;
 
 document.querySelector("button.th-btn").addEventListener("click", function (){
+  base = 0;
+  roll = 0;
+  bonus = 0;
 
   baseAP = document.querySelector("input").value;
 
@@ -48,14 +52,23 @@ document.querySelector("button.th-btn").addEventListener("click", function (){
 
 
   if(limit >= 1){
+    
     if(mons >= 1 && mons <= limit){
-      var base = chance[mons - 1] * 100;
-      var roll = Math.floor(Math.random() * 100);
+      
+      bonus = bonusPower(baseAP, mons)
+      base = (chance[mons - 1] * 100) + bonus;
+
+      if(base > 89 || mons > 19){
+        base = 89;
+      }
+      
+      roll = Math.floor(Math.random() * 100);
+      console.log("Roll: " + roll);
 
       if(roll <= base){
-        alert("You won! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
+        alert("You won! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base + "\nBonus chance: " + bonus + "%");
       }else{
-        alert("You lose! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base);
+        alert("You lose! \nYour roll is: " + roll + "\nTo win you need to roll equal or less than: " + base + "\nBonus chance: " + bonus + "%");
       }
     }else{
       alert("Invalid range try again.");
@@ -75,4 +88,16 @@ function checkLimit(ap){
     }
   }
   return x * 1;
+}
+
+function bonusPower(ap, mons){
+  var bonusPow = 0;
+  var baseAP = ap;
+  var monsAP = monsters[mons - 1];
+  while((baseAP - 2000) >= monsAP ){
+    baseAP = baseAP - 2000;
+    bonusPow += 1;
+  }
+
+  return bonusPow;
 }
