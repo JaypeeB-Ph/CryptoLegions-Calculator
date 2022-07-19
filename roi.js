@@ -103,7 +103,7 @@ function hunt(ap, legionDMG){
       totalHunts ++;
     }
   }
-      console.log("Legion's remaing AP: " + baseAP);
+      console.log("Legion's remaining AP: " + baseAP);
 
   return profit;
 }
