@@ -79,18 +79,25 @@ function hunt(ap, legionDMG){
   var baseAP = ap;
   var dmg = legionDMG / 100;
   var profit = 0;
-  var baseWR = 0, roll = 0;
+  var baseWR = 0, roll = 0, bonus = 0;
   for(var i = monsters.length; i >= 0; i--){
 
     while(baseAP >= monsters[i]){
-      baseWR = chance[i] * 100;
+      bonus = bonusPower(baseAP,i);
+      baseWR = (chance[i] * 100) + bonus;
+      
+      if(baseWR > 89 || i >= 19){
+        baseWR = 89;
+      }
+      
       roll = Math.floor(Math.random() * 100);
+      
       if(roll <= baseWR){
         profit += reward[i];
         won ++;
-        console.log("Won roll: " + roll + ", base: " + baseWR + " mons: #" + (i + 1));
+        console.log("Legion's AP: " + baseAP + " -> WON ->" + " roll: " + roll + ", base: " + baseWR + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
       }else{
-        console.log("Lost roll: " + roll + ", base: " + baseWR + " mons: #" + (i + 1));
+        console.log("Legion's AP: " + baseAP + " -> LOST ->" + " roll: " + roll + ", base: " + baseWR + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
       }
       baseAP -= (baseAP * dmg);
       totalHunts ++;
@@ -129,4 +136,16 @@ function resetAllValues(){
   huntCost = 0;
   creationCost = 0;
   totalCost = 0;
+}
+
+function bonusPower(ap, mons){
+  var bonusPow = 0;
+  var baseAP = ap;
+  var monsAP = monsters[mons];
+  while((baseAP - 2000) >= monsAP ){
+    baseAP = baseAP - 2000;
+    bonusPow += 1;
+  }
+
+  return bonusPow;
 }
