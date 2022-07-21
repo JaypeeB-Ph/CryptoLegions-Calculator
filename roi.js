@@ -74,6 +74,10 @@ document.querySelector(".see-more").addEventListener("click", function (){
 "\nRevenue: $" + revenue + "\n\nTip: To maximize profits you can wait for token to pump 20% before selling. " +  "\nRevenue if you wait: $" + maxRevenue);
 });
 
+document.querySelector(".hunt-data").addEventListener("click", function (){
+  alert("PC ONLY FEATURE \nTo access this press (Ctrl + Shift + i), and then go to console.");
+});
+
 
 function hunt(ap, legionDMG){
   var baseAP = ap;
@@ -95,15 +99,15 @@ function hunt(ap, legionDMG){
       if(roll <= baseWR){
         profit += reward[i];
         won ++;
-        console.log("Legion's AP: " + baseAP + " -> WON ->" + " roll: " + roll + ", base: " + baseWR + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
+        console.log("Legion's AP: " + Math.round(baseAp) + " -> WON ->" + " roll: " + Math.floor(roll) + ", base: " + Math.floor(baseWR) + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
       }else{
-        console.log("Legion's AP: " + baseAP + " -> LOST ->" + " roll: " + roll + ", base: " + baseWR + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
+        console.log("Legion's AP: " + Math.round(baseAp) + " -> LOST ->" + " roll: " + Math.floor(roll) + ", base: " + Math.floor(baseWR) + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
       }
       baseAP -= (baseAP * dmg);
       totalHunts ++;
     }
   }
-      console.log("Legion's remaining AP: " + baseAP);
+      console.log("Legion's remaining AP: " + Math.round(baseAP);
 
   return profit;
 }
