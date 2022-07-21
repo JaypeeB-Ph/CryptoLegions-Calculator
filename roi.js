@@ -100,9 +100,9 @@ function hunt(ap, legionDMG){
       if(roll <= baseWR){
         profit += reward[i];
         won ++;
-        console.log("Legion's AP: " + Math.round(baseAp) + " -> WON ->" + " roll: " + Math.floor(roll) + ", base: " + Math.floor(baseWR) + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
+        console.log("Legion's AP: " + Math.round(baseAP) + " -> WON ->" + " roll: " + Math.floor(roll) + ", base: " + Math.floor(baseWR) + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
       }else{
-        console.log("Legion's AP: " + Math.round(baseAp) + " -> LOST ->" + " roll: " + Math.floor(roll) + ", base: " + Math.floor(baseWR) + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
+        console.log("Legion's AP: " + Math.round(baseAP) + " -> LOST ->" + " roll: " + Math.floor(roll) + ", base: " + Math.floor(baseWR) + ", bonus chance: " + bonus + "%" + " at mons: #" + (i + 1));
       }
       baseAP -= (baseAP * dmg);
       totalHunts ++;
