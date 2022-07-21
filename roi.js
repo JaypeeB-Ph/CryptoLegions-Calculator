@@ -14,6 +14,8 @@ const reward = [10,18,26,32.5,44,60.5,74,85,101,121,141,162,
 
 let won;
 
+document.querySelector("a.return-homepage").style.textDecoration = "none";
+
 document.querySelector(".cal-btn").addEventListener("click", function (){
   resetAllValues();
 
