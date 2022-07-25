@@ -31,7 +31,7 @@ var mons;
 var base, roll, bonus;
 
 document.querySelector("button.ms-btn").addEventListener("click", function(){
-  alert("This feature is currently being developed show me some love by buying me coffee address is pasted below thank you 🙏.");
+  alert("This feature is currently being developed show me some love by donating, address is pasted below thank you 🙏.");
 });
 
 
