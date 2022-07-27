@@ -92,7 +92,7 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   }
   
   if(totalCost > initialProfit){
-    document.querySelector(".net-profit-p").innerText = "The total operation cost of $" + totalCost + " exceeds the legion's profitability." + "\nYour legion stopped earning at monster: #" + profitLevel + " below.";
+    document.querySelector(".net-profit-p").innerText = "The total operation cost of $" + totalCost + " exceeds the legion's profitability." + "\nYour legion stopped earning and ate your profits at monster: #" + profitLevel + " below.";
   }else{
     document.querySelector(".net-profit-p").innerText = "Assuming you won " + won +" out of " + totalHunts + " hunts from the strongest monster you can hunt to the weakest, gas fees not included.";
   }
