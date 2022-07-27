@@ -44,9 +44,11 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   for(var x = reward.length - 1; x >= 0; x--){
     if(warriors < reward[x]){
       profitLevel = x;
-      if(profitLevel >= 1){
+       if(profitLevel >= 1){
         infoText = "Your legion stopped earning and ate your profits at monster: #" + profitLevel + " below.";
-      } 
+       }else if (profitLevel === 0){
+         infoText = "";
+       }
     }
   }
   
