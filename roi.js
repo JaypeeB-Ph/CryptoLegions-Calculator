@@ -2,6 +2,7 @@ let capital, ap, warriors, beasts, hTax, legionDMG, sTax;
 
 let initialProfit,grossProfit,netProfit,revenue, maxRevenue;
 let totalHunts, supplyCost, huntCost, creationCost, totalCost, finalSellTax;
+let profitLevel;
 
 const monsters = [2000,5000,8000,10000,13000,17000,20000,22000,25000,28000,31000,34000,
 37000,40000,42000,47000,50000,53000,56000,60000,150000,250000,300000,500000];
@@ -38,6 +39,14 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
 
   grossProfit = Math.round(initialProfit - totalCost);
   finalSellTax = Math.round((grossProfit * (sTax / 100)));
+  
+  
+  for(int x = 23; x >= 0; x--){
+    if(warriors < reward[x]){
+      profitLevel = x;
+    }
+  }
+  
   
   if (finalSellTax <= 0){
     finalSellTax = 0;
@@ -81,8 +90,9 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
     document.querySelector(".net-profit").style.color = "red";
     }
   }
+  
   if(totalCost > initialProfit){
-    document.querySelector(".net-profit-p").innerText = "The total cost of $" + totalCost + " is greater versus the legion's profitability.";
+    document.querySelector(".net-profit-p").innerText = "The total operation cost of $" + totalCost + " exceeds the legion's profitability." + "\nYour legion stopped earning at monster: #" + profitLevel + " below.";
   }else{
     document.querySelector(".net-profit-p").innerText = "Assuming you won " + won +" out of " + totalHunts + " hunts from the strongest monster you can hunt to the weakest, gas fees not included.";
   }
