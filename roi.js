@@ -1,7 +1,7 @@
 let capital, ap, warriors, beasts, hTax, legionDMG, sTax;
 
 let initialProfit,grossProfit,netProfit,revenue, maxRevenue;
-let totalHunts, supplyCost, huntCost, creationCost, totalCost;
+let totalHunts, supplyCost, huntCost, creationCost, totalCost, finalSellTax;
 
 const monsters = [2000,5000,8000,10000,13000,17000,20000,22000,25000,28000,31000,34000,
 37000,40000,42000,47000,50000,53000,56000,60000,150000,250000,300000,500000];
@@ -30,22 +30,35 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   legionDMG = Number(document.querySelector("#legion-damage").value);
   sTax = Number(document.querySelector("#sell-tax").value);
 
-  initialProfit = hunt(ap, legionDMG);
-  supplyCost = supplies(totalHunts, warriors);
-  huntCost = initialProfit * (hTax / 100);
+  initialProfit = Math.round(hunt(ap, legionDMG));
+  supplyCost = Math.round(supplies(totalHunts, warriors));
+  huntCost = Math.round(initialProfit * (hTax / 100));
   creationCost = (warriors + beasts) * 0.5;
-  totalCost = (creationCost + huntCost) + supplyCost;
+  totalCost = Math.round((creationCost + huntCost) + supplyCost);
 
-  grossProfit = initialProfit - totalCost;
+  grossProfit = Math.round(initialProfit - totalCost);
+  finalSellTax = Math.round((grossProfit * (sTax / 100)));
+  
+  if (finalSellTax <= 0){
+    finalSellTax = 0;
+  }
+  
   netProfit = Math.round(grossProfit - (grossProfit * (sTax / 100)));
-  revenue = (netProfit - capital);
+  
+   if(netProfit <= 0){
+    netProfit = 0;
+  }
+  
+  revenue = Math.round((netProfit - capital));
+  
+ 
   
   if(revenue <= 0){
     revenue = 0;
   }
   
   if(revenue > 0){
-     maxRevenue = revenue + (grossProfit *(sTax / 100));
+     maxRevenue = revenue + finalSellTax);
   }else{
      maxRevenue = revenue;
   }
@@ -60,8 +73,13 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
     document.querySelector(".net-profit").innerText = "$" + netProfit  + " (✅ " + Math.round((((capital - netProfit) / capital) * 100) * -1) + "%)";
     document.querySelector(".net-profit").style.color = "green";
   }else if(netProfit < capital){
+    if(netProfit <= 0){
+    document.querySelector(".net-profit").innerText = "$" + netProfit;
+    document.querySelector(".net-profit").style.color = "red";      
+    }else{
     document.querySelector(".net-profit").innerText = "$" + netProfit  + " (🔻 " + Math.round((((capital - netProfit) / capital) * 100) * -1) + "%)";
     document.querySelector(".net-profit").style.color = "red";
+    }
   }
 
   document.querySelector(".net-profit-p").innerText = "Assuming you won " + won +" out of " + totalHunts + " hunts from the strongest monster you can hunt to the weakest, gas fees not included.";
@@ -73,7 +91,7 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
 document.querySelector(".see-more").addEventListener("click", function (){
   alert("Legion Total Hunts: " + totalHunts +"\nGross Profit: $" + initialProfit +
 "\nTotal Supply Cost: $" + supplyCost + "\nTotal Hunt Tax: $" + huntCost + "\nLegion Creation Cost: $" + creationCost +
-"\nOverall Fees: $" + totalCost + "\nSell tax: $" + (grossProfit * (sTax / 100))  + "\nNet Profit: $" + netProfit +
+"\nOverall Fees: $" + totalCost + "\nSell tax: $" + finalSellTax  + "\nNet Profit: $" + netProfit +
 "\nRevenue: $" + revenue + "\n\nTip: To maximize profits you can wait for token to pump 20% before selling. " +  "\nRevenue if you wait: $" + maxRevenue);
 });
 
