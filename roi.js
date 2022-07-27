@@ -41,7 +41,7 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   finalSellTax = Math.round((grossProfit * (sTax / 100)));
   
   
-  for(int x = 23; x >= 0; x--){
+  for(var x = reward.length - 1; x >= 0; x--){
     if(warriors < reward[x]){
       profitLevel = x;
     }
