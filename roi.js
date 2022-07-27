@@ -58,7 +58,7 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
   }
   
   if(revenue > 0){
-     maxRevenue = revenue + finalSellTax);
+     maxRevenue = revenue + finalSellTax;
   }else{
      maxRevenue = revenue;
   }
