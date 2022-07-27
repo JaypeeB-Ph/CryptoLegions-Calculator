@@ -81,8 +81,12 @@ document.querySelector(".cal-btn").addEventListener("click", function (){
     document.querySelector(".net-profit").style.color = "red";
     }
   }
-
-  document.querySelector(".net-profit-p").innerText = "Assuming you won " + won +" out of " + totalHunts + " hunts from the strongest monster you can hunt to the weakest, gas fees not included.";
+  if(totalCost > initialProfit){
+    document.querySelector(".net-profit-p").innerText = "The total cost $" + totalCost + " is greater versus the legion's profitability.";
+  }else{
+    document.querySelector(".net-profit-p").innerText = "Assuming you won " + won +" out of " + totalHunts + " hunts from the strongest monster you can hunt to the weakest, gas fees not included.";
+  }
+ 
   document.querySelector(".see-more").innerText = "See more information";
   document.querySelector(".hunt-data").innerText = "Hunt data";
 
