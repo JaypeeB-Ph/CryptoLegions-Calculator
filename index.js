@@ -14,7 +14,7 @@ document.querySelector("button.cal-btn").addEventListener("click", function (){
   ap = document.querySelector("input").value;
 
   while(ap >= 2000){
-    ap -= (ap * 0.03);
+    ap -= (ap * 0.02);
     hunt++;
   }
 
